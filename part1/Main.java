@@ -2,7 +2,7 @@
 
 public class Main {
 
-    public static void main(String [] args) {
+public static void main(String [] args) {
 
         // instantiate some sequences
  Constant c1 = new Constant(4, 11);
