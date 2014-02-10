@@ -83,6 +83,13 @@ protected class JumbleIt extends SeqIt {
 }
 
 protected class JumbleUser extends JumbleIt {
-	public static int lengthLongestNDCSS1(Jumble j);
-	
+	public static int lengthLongestNDCSS1(Jumble j) {
+	int count = 0;
+	int temp = s.next();
+	int temp2 = s.next();
+	if (temp1 <= temp2)
+		count++;
+	else
+		return count;
+	}
 }
