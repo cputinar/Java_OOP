@@ -14,12 +14,15 @@ public class ConstantIt implements SeqIt {
 	}
 
 	public int next() {
-		return seq.v;
+		int tempval = seq.v;
+		
 		if (hasNext() == false) {
 			System.err.println("No next value");
 			System.exit(1);
 		}
-		else
+		else {
 			it++;
+		}
+		return tempval;
 	}
 }
