@@ -1,34 +1,31 @@
 public class JumbleUser {
-	//static JumbleIt jseq;
-	protected Jumble seq;
-	public JumbleUser(Jumble j) {
-		seq = j;
+
+	public JumbleUser() {
 	}
-	
+
 	public static int lengthLongestNDCSS1(Jumble j) {
-	JumbleIt jseq = new JumbleIt(j);
 	int temp = 1;
 	int longest = 0;
-	int holder1 = jseq.next();
+	int holder1;
 	int holder2;
-	
 
-	while (jseq.hasNext()) {
-		//holder1 = jseq.next();
+	if (j.hasNext()){
+		holder1 = j.next();
 		longest = temp;
-		
-		holder2 = jseq.next();
-		if( holder2 >= holder1)
+	}
+
+	while (j.hasNext()) {
+		holder2 = j.next();
+		if(holder2 >= holder1)
 			temp++;
 		else {
-			if(temp > longest)
+			if(temp > longest){
 				longest = temp;
+			}
+			
 			temp = 1;
 		}
 		holder1 = holder2;
-
-
-		//return longest;
 
 		}
 		return longest;
