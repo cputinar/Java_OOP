@@ -1,6 +1,8 @@
 public class JumbleIt implements SeqIt {
 	protected int it;
 	public Jumble seq;
+	int tempval;
+	
 	public JumbleIt(Jumble s) {
 		seq = s;
 		it = 0;
@@ -19,8 +21,9 @@ public class JumbleIt implements SeqIt {
 			System.exit(1);
 		}
 		else {
-			return seq.val[it];
+			tempval = seq.val[it];
 			it++;
 		}
+		return tempval;
 	}
 }
