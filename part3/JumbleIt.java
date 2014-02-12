@@ -1,6 +1,6 @@
 public class JumbleIt implements SeqIt {
 	protected int it;
-	public Jumble seq;
+	protected Jumble seq;
 	int tempval;
 	
 	public JumbleIt(Jumble s) {
