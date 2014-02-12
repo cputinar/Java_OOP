@@ -1,6 +1,6 @@
 public class ConstantIt implements SeqIt {
 	protected int it;
-	public Constant seq;
+	protected Constant seq;
 	public ConstantIt(Constant s) {
 		seq = s;
 		it = 0;
