@@ -1,6 +1,8 @@
 public class DeltaIt implements SeqIt {
 	protected int it;
 	public Delta seq;
+	int temp;
+	
 	public DeltaIt(Delta s) {
 		seq = s;
 		it = 0;
@@ -19,10 +21,10 @@ public class DeltaIt implements SeqIt {
 			System.exit(1);
 		}
 		else {
-			int temp;
 			temp = it * seq.d;
 			temp = seq.init + temp;
-			return temp;
+			//return temp;
 		}
+		return temp;
 	}
 }
