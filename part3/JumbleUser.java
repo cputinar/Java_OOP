@@ -1,5 +1,5 @@
-public class JumbleUser implements JumbleIt {
-	JumbleIt jseq;
+public class JumbleUser extends JumbleIt {
+	static JumbleIt jseq;
 	public static int lengthLongestNDCSS1(Jumble j) {
 	int temp = 1;
 	int longest = 0;
