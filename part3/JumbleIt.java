@@ -7,7 +7,7 @@ public class JumbleIt implements SeqIt {
 	}
 	
 	public boolean hasNext() {
-		if (it != seq.length)
+		if (it != seq.val.length)
 			return true;
 		else
 			return false;
