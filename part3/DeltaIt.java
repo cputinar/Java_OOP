@@ -1,6 +1,6 @@
 public class DeltaIt implements SeqIt {
 	protected int it;
-	public Delta seq;
+	protected Delta seq;
 	int temp;
 	
 	public DeltaIt(Delta s) {
