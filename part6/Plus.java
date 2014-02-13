@@ -11,8 +11,8 @@ public class Plus {
 		else
 			count=del1.n;
 
-		v=del1.init+del2.init;
-		d=del1.d+del2.d;
+		v=(del1.init+del2.init);
+		d=(del1.d+del2.d);
 		Delta final_result = new Delta(count, v, d);
 		return final_result;
 	}
@@ -29,7 +29,7 @@ public class Plus {
 		Jumble final_result = new Jumble(val);
 
 		while(position != count){
-			v = jum1.val[position] + jum2.val[position];
+			v = (jum1.val[position] + jum2.val[position]);
 			final_result.val[position] = v;
 			position=position+1;
 		}
@@ -45,7 +45,7 @@ public class Plus {
 			count=con2.n;
 		else
 			count=con1.n;
-		v=con1.v+con2.v;
+		v=(con1.v+con2.v);
 		Constant final_result = new Constant(count,v);
 		return final_result;
 

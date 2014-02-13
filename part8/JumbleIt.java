@@ -9,8 +9,12 @@ public class JumbleIt implements SeqIt {
     }   
     
     public boolean hasNext() {
-        if(seq != it.val.length) return true;
-        else return false;
+        if(seq == it.val.length) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
     
     public int next() throws UsingIteratorPastEndException {
@@ -20,8 +24,7 @@ public class JumbleIt implements SeqIt {
             System.exit(1);
         }
 
-        tempval = it.val[seq];
-        seq++;
+        tempval = it.val[seq]; seq=seq+1;
         return tempval;
     }    
     

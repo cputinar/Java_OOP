@@ -10,18 +10,23 @@ public class Jumble extends Seq{
     }
     
     public String toString() {
+
 		String string="";
+
 		for (int number : val){
 			string = string + number+" " ;
 		}
+
 		return "{ "+val.length+" : "+string+"}";
         
 	}
     
     public int min(){
+
         if (0 == val.length){
             return 0;
         }
+        
         else{
             int MIN = val[0];
             for (int number : val){

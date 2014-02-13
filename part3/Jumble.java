@@ -14,8 +14,9 @@ public class Jumble extends Seq{
 	}
 
     public Jumble(int [] values){
-        val = new int[values.length];
         int i = 0;
+        val = new int[values.length];
+        
         for (int number : values){
             val[i] = number; i=i+1;
         }

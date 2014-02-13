@@ -30,9 +30,10 @@ SeqIt itr2 = seq2.createSeqIt();
 				}
 			else{
 		val=itr1.next()+itr2.next();
-			if(val == prev && part_C){
-				part_C = true;
-				}
+			if(val == prev){
+				if(part_C){
+				part_C = true; }
+			}
 			else if(val != prev && part_C){
 				part_C = false;
 				}
@@ -42,15 +43,16 @@ SeqIt itr2 = seq2.createSeqIt();
 				part_B = false;
 					}
 
-			if(del == val - prev && part_D){
+			if(del == (val - prev)){
+				if(part_D){
 				part_D = true;
 				}
+			}
 			else 
 				part_D = false;
 					
 
-			cnt = cnt+1;
-			prev = val;
+			cnt = cnt+1; prev = val;
 				}
 			}
 
@@ -61,11 +63,12 @@ SeqIt itr2 = seq2.createSeqIt();
 		
 
 		if(part_C){
-			if(cnt==1){
-				return new Constant(cnt, init);
+			if(cnt!=1){
+				return new Constant(cnt, val);
 			}
 			else {
-				return new Constant(cnt, val);
+				return new Constant(cnt, init);
+				
 			}
 		}
 

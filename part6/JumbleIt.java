@@ -9,20 +9,23 @@ public class JumbleIt implements SeqIt {
     }   
     
     public boolean hasNext() {
-        if(seq != it.val.length) return true;
-        else return false;
+        if(seq == it.val.length) {
+         return false;
+     }
+        else {
+            return true;
+        }
     }
     
     public int next() throws UsingIteratorPastEndException {
+
         if(seq == it.val.length) {
 
             System.out.println("JumbleIt called past end");
             System.exit(1);
         }
 
-        tempval = it.val[seq];
-        seq++;
-        return tempval;
+        tempval = it.val[seq]; seq=seq+1;return tempval;
     }    
     
 }

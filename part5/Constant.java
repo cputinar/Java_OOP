@@ -1,5 +1,6 @@
 public class Constant extends Seq{
     protected int n,v;
+    
     public Constant(int num, int value){
         if (num == 0){
             this.n = 0; this.v = 0;

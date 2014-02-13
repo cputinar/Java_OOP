@@ -5,14 +5,13 @@ public class Plus {
 	public static Seq plus(Constant con, Delta del){
 		int count=0; int position=0; int v;
 
-		if(con.n >= del.n)
-			count=del.n;
+		if(con.n < del.n)
+			count=con.n;
 		
 		else
-			count=con.n;
+			count=del.n;
 
-		v = con.v + del.init;
-		Delta final_result = new Delta(count,v, del.d);
+		v = con.v + del.init; Delta final_result = new Delta(count,v, del.d);
 		return final_result;
 
 	}
@@ -20,14 +19,13 @@ public class Plus {
 	public static Seq plus(Delta del, Jumble jum){
 		int count=0; int position=0; int v;
 
-		if(del.n >= jum.val.length)
-			count=jum.val.length;
+		if(del.n < jum.val.length)
+			count=del.n;
 		
 		else
-			count=del.n;
+			count=jum.val.length;
 
-		int [] val = new int[count];
-		Jumble final_result = new Jumble(val);
+		int [] val = new int[count]; Jumble final_result = new Jumble(val);
 		SeqIt i=del.createSeqIt();
 
 		while(position != count){
@@ -39,9 +37,7 @@ public class Plus {
 			catch(UsingIteratorPastEndException e){
 				break;
 			}
-		}
-
-		return final_result;
+		} return final_result;
 
 	}
 
@@ -49,14 +45,14 @@ public class Plus {
 	public static Seq plus(Jumble jum, Delta del){
 		int count=0; int position=0; int v;
 
-		if(del.n >= jum.val.length)
-			count=jum.val.length;
-		
-		else
+		if(del.n < jum.val.length)
 			count=del.n;
 
-		int [] val = new int[count];
-		Jumble final_result = new Jumble(val);
+		
+		else
+			count=jum.val.length;
+
+		int [] val = new int[count]; Jumble final_result = new Jumble(val);
 		SeqIt i=del.createSeqIt();
 
 		while(position != count){
@@ -79,11 +75,11 @@ public class Plus {
 		int position=0;
 		int v;
 
-		if(con1.n >= con2.n){
-			count=con2.n;
+		if(con1.n < con2.n){
+			count=con1.n;
 		}
 		else
-			count=con1.n;
+			count=con2.n;
 
 		v=con1.v+con2.v;
 
@@ -96,11 +92,11 @@ public class Plus {
 	public static Seq plus(Jumble jum1, Jumble jum2){
 		int count=0; int position=0; int v;
 
-		if(jum1.val.length >= jum2.val.length)
-			count = jum2.val.length;
+		if(jum1.val.length < jum2.val.length)
+			count = jum1.val.length;
 		
 		else
-			count = jum1.val.length;
+			count = jum2.val.length;
 
 		int [] val = new int[count];
 		Jumble final_result = new Jumble(val);
@@ -119,11 +115,12 @@ public class Plus {
 	public static Seq plus(Constant con, Jumble jum){
 		int count=0; int position=0; int v;
 
-		if(con.n >= jum.val.length)
-			count=jum.val.length;
+		if(con.n < jum.val.length)
+			count=con.n;
 		
 		else
-			count=con.n;
+			count=jum.val.length;
+			
 
 		int [] val = new int[count];
 
@@ -141,11 +138,11 @@ public class Plus {
 	public static Seq plus(Jumble jum, Constant con){
 		int count=0; int position=0; int v;
 
-		if(con.n >= jum.val.length)
-			count=jum.val.length;
+		if(con.n < jum.val.length)
+			count=con.n;
 		
 		else
-			count=con.n;
+			count=jum.val.length;
 
 		int [] val = new int[count];
 		Jumble final_result = new Jumble(val);
@@ -154,26 +151,22 @@ public class Plus {
 			v=con.v + jum.val[position];
 			final_result.val[position] = v;
 			position = position+1;
-		}
-
-		return final_result;
+		} return final_result;
 
 	}
 
 		public static Seq plus(Delta del1, Delta del2){
 		int count=0; int position=0; int v; int d;
 
-		if(del1.n >= del2.n)
-			count=del2.n;
+		if(del1.n < del2.n)
+			count=del1.n;
 		
 		else
-			count=del1.n;
+			count=del2.n;
 
 		v=del1.init+del2.init; d=del1.d+del2.d;
 
-		Delta final_result = new Delta(count, v, d);
-
-		return final_result;
+		Delta final_result = new Delta(count, v, d); return final_result;
 	}
 
 

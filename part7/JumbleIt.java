@@ -1,16 +1,20 @@
 public class JumbleIt implements SeqIt {
     
     private Jumble it;
-    private int seq, tempval;
+    private int seq;
+    private int tempval;
     
     JumbleIt(Jumble j){
-        it = j;
-        seq = 0;
+        it = j; seq = 0;
     }   
     
     public boolean hasNext() {
-        if(seq != it.val.length) return true;
-        else return false;
+        if(seq == it.val.length) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
     
     public int next() throws UsingIteratorPastEndException {
@@ -20,9 +24,7 @@ public class JumbleIt implements SeqIt {
             System.exit(1);
         }
 
-        tempval = it.val[seq];
-        seq++;
-        return tempval;
+        tempval = it.val[seq]; seq=seq+1; return tempval;
     }    
     
 }

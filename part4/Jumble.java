@@ -5,7 +5,7 @@ public class Jumble extends Seq{
         int i = 0;
         for (int number : values){
 			val[i] = number;
-            i++;
+            i=i+1;
 		}
     }
     

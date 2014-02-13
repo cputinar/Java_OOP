@@ -1,16 +1,17 @@
 public class DeltaIt implements SeqIt {
 
     private int num, it, del, temp;
+
     DeltaIt(Delta s){
         num = s.n; it = s.init; del = s.d;
     }
     
     public boolean hasNext() {
-        if(num != 0) {
-            return true;
+        if(num == 0) {
+            return false;
         }
         else {
-         return false;
+         return true;
         }
     }
     
