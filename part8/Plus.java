@@ -1,9 +1,6 @@
 public class Plus(){
 
-
-
-
-	public static Seq plus(Seq s1, Seq s2){
+	public static Seq Plus(Seq s1, Seq s2){
 		int count = 0;
 		int position = 0;
 		int previous = 0;
@@ -80,7 +77,7 @@ public class Plus(){
 
 			while(position != count){
 				try {
-					final_result.values[position] = i1.next() + i2.next();
+					final_result.val[position] = i1.next() + i2.next();
 					position = position + 1;
 				}
 
