@@ -10,7 +10,7 @@ public class DeltaIt implements SeqIt {
         else return false;
     }
     
-    public int next() {
+    public int next() throws UsingIteratorPastEndException{
         if(num == 0)
         {
             System.err.println("DeltaIt called past end");

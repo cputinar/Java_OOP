@@ -10,7 +10,7 @@ public class ConstantIt implements SeqIt {
         else return false;
     }
     
-    public int next() {
+    public int next() throws UsingIteratorPastEndException{
         if(it == 0)
         {
             System.out.println("ConstantIt called past end");

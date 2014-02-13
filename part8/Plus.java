@@ -1,94 +1,98 @@
 public class Plus{
 
-	public static Seq plus(Seq s1, Seq s2){
-		int count = 0;
-		int position = 0;
-		int previous = 0;
-		int value = 0;
-		int delta = 0;
-		int initial = 0;
+public static Seq plus(Seq seq1, Seq seq2){
+boolean part_A = true;
+boolean part_B = true;
+boolean part_C = true;
+boolean part_D = true;
+int cnt = 0;
+int val = 0;
+int del = 0;
+int pos = 0;
+int prev = 0;
+int init = 0;
 
-		boolean first = true;
-		boolean firstDel = true;
-		boolean isConstant = true;
-		boolean isDelta = true;
 
-		SeqIt i1 = s1.createSeqIt();
-		SeqIt i2 = s2.createSeqIt();
 
-		while(i1.hasNext() && i2.hasNext()){
-			try{
-				if(first){
-					previous = i1.next() + i2.next();
-					count=count+1;
-					initial=previous;
-					first=false;
+SeqIt itr1 = seq1.createSeqIt();
+SeqIt itr2 = seq2.createSeqIt();
+
+	while(itr1.hasNext()){
+		while(itr2.hasNext()){
+		try{
+			if(part_A){
+		prev = itr1.next() + itr2.next();
+
+		cnt=cnt+1;
+		init=prev;
+					
+		part_A=false;
 				}
-				else{
-					value=i1.next()+i2.next();
-					if(value == previous && isConstant){
-						isConstant = true;
-					}
-					else if(value != previous && isConstant){
-						isConstant = false;
+			else{
+		val=itr1.next()+itr2.next();
+			if(val == prev && part_C){
+				part_C = true;
+				}
+			else if(val != prev && part_C){
+				part_C = false;
+				}
+
+			if(part_B){
+				del = val - prev;
+				part_B = false;
 					}
 
-					if(firstDel){
-						delta = value - previous;
-						firstDel = false;
-					}
+			if(del == val - prev && part_D){
+				part_D = true;
+				}
+			else 
+				part_D = false;
+					
 
-					if(delta == value - previous && isDelta){
-						isDelta = true;
-					}
-
-					else {
-						isDelta = false;
-					}
-
-					count = count+1;
-					previous = value;
+			cnt = cnt+1;
+			prev = val;
 				}
 			}
 
 			catch(UsingIteratorPastEndException e){
 				break;
 			}
-		}
+		}}
+		
 
-		if(isConstant){
-			if(count==1){
-				return new Constant(count, initial);
+		if(part_C){
+			if(cnt==1){
+				return new Constant(cnt, init);
 			}
 			else {
-				return new Constant(count, value);
+				return new Constant(cnt, val);
 			}
 		}
 
-		else if(isDelta){
-			return new Delta(count, initial, delta);
+		else if(part_D){
+			return new Delta(cnt, init, del);
 		}
 
 		else
 		{
-			Jumble final_result = new Jumble(new int[count]);
-			i1 = s1.createSeqIt();
-			i2 = s2.createSeqIt();
+	Jumble final_result = new Jumble(new int[cnt]);
+	itr1 = seq1.createSeqIt();
+	itr2 = seq2.createSeqIt();
 
-			while(position != count){
-				try {
-					final_result.val[position] = i1.next() + i2.next();
-					position = position + 1;
-				}
+		while(pos != cnt){
+		try {
+			final_result.val[pos] = itr1.next() + itr2.next();
+			pos = pos + 1;
+			}
 
-				catch (UsingIteratorPastEndException e){
-					break;
-				}
+		catch (UsingIteratorPastEndException e){
+			break;
+			}
 
 			}
 			return final_result;
 		}
 
-
-	}
+		
+		}
 }

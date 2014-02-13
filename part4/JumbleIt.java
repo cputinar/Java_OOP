@@ -13,7 +13,7 @@ public class JumbleIt implements SeqIt {
         else return false;
     }
     
-    public int next() {
+    public int next() throws UsingIteratorPastEndException{
         if(seq == it.val.length) {
             System.out.println("JumbleIt called past end");
             System.exit(1);
