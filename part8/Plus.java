@@ -1,6 +1,6 @@
-public class Plus(){
+public class Plus{
 
-	public static Seq Plus(Seq s1, Seq s2){
+	public static Seq plus(Seq s1, Seq s2){
 		int count = 0;
 		int position = 0;
 		int previous = 0;

@@ -1,29 +1,28 @@
 public class JumbleIt implements SeqIt {
-	protected int it;
-	protected Jumble seq;
-	int tempval;
-	
-	public JumbleIt(Jumble s) {
-		seq = s;
-		it = 0;
-	}
-	
-	public boolean hasNext() {
-		if (it != seq.val.length)
-			return true;
-		else
-			return false;
-	}
-	
-	public int next() throws UsingIteratorPastEndException {
-		if (hasNext() == false) {
-			System.err.println("No next value");
-			System.exit(1);
-		}
-		else {
-			tempval = seq.val[it];
-			it++;
-		}
-		return tempval;
-	}
+    
+    private Jumble it;
+    private int seq, tempval;
+    
+    JumbleIt(Jumble j){
+        it = j;
+        seq = 0;
+    }   
+    
+    public boolean hasNext() {
+        if(seq != it.val.length) return true;
+        else return false;
+    }
+    
+    public int next() throws UsingIteratorPastEndException {
+        if(seq == it.val.length) {
+
+            System.out.println("JumbleIt called past end");
+            System.exit(1);
+        }
+
+        tempval = it.val[seq];
+        seq++;
+        return tempval;
+    }    
+    
 }
