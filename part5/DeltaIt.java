@@ -6,8 +6,12 @@ public class DeltaIt implements SeqIt {
     }
     
     public boolean hasNext() {
-        if(num != 0) return true;
-        else return false;
+        if(num != 0) {
+            return true;
+        }
+        else {
+         return false;
+        }
     }
     
     public int next() throws UsingIteratorPastEndException {
@@ -16,10 +20,7 @@ public class DeltaIt implements SeqIt {
             System.err.println("DeltaIt called past end");
             System.exit(1);
         }
-        num--;
-        temp = it; //correct value to return
-        it = it + del; //update to new value based on del
-        return temp;
+        num=num-1; temp = it; it = it + del; return temp;
     }    
     
 }

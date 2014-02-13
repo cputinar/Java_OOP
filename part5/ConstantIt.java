@@ -6,8 +6,10 @@ public class ConstantIt implements SeqIt {
     }
     
     public boolean hasNext() {
-        if(it != 0) return true;
-        else return false;
+        if(it != 0) 
+            return true;
+        else 
+            return false;
     }
     
     public int next() throws UsingIteratorPastEndException {
@@ -16,7 +18,7 @@ public class ConstantIt implements SeqIt {
             System.out.println("ConstantIt called past end");
             System.exit(1);
         }
-        it--;
+        it=it-1;
         return tempval;
     }
 }
